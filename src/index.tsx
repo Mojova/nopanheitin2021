@@ -1,12 +1,13 @@
+import { rollDice } from 'common/rollDice'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { App } from 'App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App rollDiceFn={rollDice} />
   </React.StrictMode>,
   document.getElementById('root')
 );

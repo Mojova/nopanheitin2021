@@ -1,22 +1,25 @@
-import { reduce } from 'lodash'
+import { rollDie } from 'common/rollDie'
+import { curry, reduce } from 'lodash'
 
-interface RollResult {
-    rolls: number[]
+export interface RollResult {
+    dice: number[]
     successes: number
     ones: number
 }
 
-export const rollDice = (rollDieFn: () => number, amount: number): RollResult => {
+export const _rollDice = (rollDieFn: () => number, amount: number): RollResult => {
     const rolls: number[] = []
     for (let i = 0; i < amount; i++) {
         rolls.push(rollDieFn())
     }
     return {
-        rolls,
+        dice: rolls,
         successes: calculateSuccesses(rolls),
         ones: calculateOnes(rolls)
     }
 }
+
+export const rollDice: (amount: number) => RollResult = curry(_rollDice)(rollDie)
 
 const calculateSuccesses = (rolls: number[], threshold: number = 7, doubleLimit = 10) => {
     return reduce(rolls, (sum, roll) => {
