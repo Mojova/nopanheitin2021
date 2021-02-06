@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import classes from 'components/Input/Input.module.scss'
 
 interface InputProps {
     id: string
@@ -7,13 +8,16 @@ interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = (props) => {
-    const {id, value, onChange} = props
+    const {id, value, onChange, children} = props
 
     const internalOnChange = (event: ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.valueAsNumber)
     }
 
     return (
-        <input id={id} value={value} type="number" min="1" step="1" onChange={internalOnChange} />
+        <>
+            <label htmlFor={id} className={classes.label}>{children}</label>
+            <input id={id} value={value} className={classes.input} type="number" min="1" step="1" onChange={internalOnChange}/>
+        </>
     )
 }
