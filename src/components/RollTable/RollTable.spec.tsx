@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { RollResult } from 'common/rollDice'
-import { RollTable } from 'components/RollTable'
+import { RollTable } from 'components/RollTable/RollTable'
 
 describe('RollTable', () => {
     it('shows the results of a roll', () => {

@@ -1,6 +1,7 @@
 import { RollResult } from 'common/rollDice'
-import { Input } from 'components/Input'
-import { RollTable } from 'components/RollTable'
+import { MainHeader } from 'components/MainHeader/MainHeader'
+import { RollControls } from 'components/RollControls/RollControls'
+import { RollTable } from 'components/RollTable/RollTable'
 import React, { useState } from 'react';
 import './App.css';
 
@@ -11,18 +12,15 @@ interface AppProps {
 export const App: React.FC<AppProps> = (props) => {
     const {rollDiceFn} = props
     const [roll, setRoll] = useState<RollResult>()
-    const [dice, setDice] = useState<number>(1)
 
-    const doRoll = () => {
+    const doRoll = (dice: number) => {
         setRoll(rollDiceFn(dice))
     }
 
     return (
         <div className="App">
-            <h1>Exalted-nopanheitin</h1>
-            <label htmlFor="rolls">Noppien määrä</label>
-            <Input id="rolls" value={dice} onChange={setDice} />
-            <button onClick={doRoll}>Heitä</button>
+            <MainHeader>Exalted-nopanheitin</MainHeader>
+            <RollControls doRoll={doRoll} />
             <RollTable roll={roll} />
         </div>
     );

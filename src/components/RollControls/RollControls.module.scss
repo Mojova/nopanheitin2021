@@ -1,0 +1,13 @@
+.container {
+  margin: 1rem;
+}
+
+.button {
+  margin-left: 1rem;
+
+  @media (max-width: 375px) {
+    margin-top: 0.5rem;
+    margin-left: 0;
+    width: 15rem;
+  }
+}
