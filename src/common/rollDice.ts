@@ -4,6 +4,7 @@ import { curry, reduce } from 'lodash'
 export interface RollResult {
     dice: number[]
     successes: number
+    successesWithoutDoubles: number
     ones: number
 }
 
@@ -15,6 +16,7 @@ export const _rollDice = (rollDieFn: () => number, amount: number): RollResult =
     return {
         dice: rolls,
         successes: calculateSuccesses(rolls),
+        successesWithoutDoubles: calculateSuccesses(rolls, 7, Number.MAX_SAFE_INTEGER),
         ones: calculateOnes(rolls)
     }
 }
