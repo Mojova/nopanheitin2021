@@ -8,6 +8,7 @@ describe('App', () => {
     const result: RollResult = {
         dice: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         successes: 5,
+        successesWithoutDoubles: 4,
         ones: 1
     }
     it('renders the app', () => {
@@ -20,8 +21,12 @@ describe('App', () => {
         expect(button).toBeInTheDocument()
         expect(screen.queryByText('Noppa')).not.toBeInTheDocument()
         expect(screen.queryByText('Tulos')).not.toBeInTheDocument()
+        expect(screen.queryByText('onnistumista!')).not.toBeInTheDocument()
+        expect(screen.queryByText('vahinkoa!')).not.toBeInTheDocument()
         userEvent.type(input, '10')
         userEvent.click(button)
+        expect(screen.getByText('onnistumista!')).toBeInTheDocument()
+        expect(screen.getByText('vahinkoa!')).toBeInTheDocument()
         expect(screen.getByText('Noppa')).toBeInTheDocument()
         expect(screen.getByText('Tulos')).toBeInTheDocument()
     })

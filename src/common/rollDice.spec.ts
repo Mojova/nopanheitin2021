@@ -7,6 +7,7 @@ describe('rollDice', () => {
         expect(result.dice.length).toBe(1)
         expect(result.dice[0]).toBe(7)
         expect(result.successes).toBe(1)
+        expect(result.successesWithoutDoubles).toBe(1)
         expect(result.ones).toBe(0)
     })
     it('rolls many dice', () => {
@@ -17,6 +18,7 @@ describe('rollDice', () => {
         const result = _rollDice(mockRollDie, 10)
         expect(result.dice.length).toBe(10)
         expect(result.successes).toBe(5)
+        expect(result.successesWithoutDoubles).toBe(4)
         expect(result.ones).toBe(1)
     })
 })

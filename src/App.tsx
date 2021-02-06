@@ -1,6 +1,7 @@
 import { RollResult } from 'common/rollDice'
 import { MainHeader } from 'components/MainHeader/MainHeader'
 import { RollControls } from 'components/RollControls/RollControls'
+import { RollResultView } from 'components/RollResult/RollResultView'
 import { RollTable } from 'components/RollTable/RollTable'
 import React, { useState } from 'react';
 import './App.css';
@@ -21,6 +22,7 @@ export const App: React.FC<AppProps> = (props) => {
         <div className="App">
             <MainHeader>Exalted-nopanheitin</MainHeader>
             <RollControls doRoll={doRoll} />
+            <RollResultView rollResult={roll} />
             <RollTable roll={roll} />
         </div>
     );
