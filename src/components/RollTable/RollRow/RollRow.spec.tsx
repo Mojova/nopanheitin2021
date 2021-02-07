@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { RollRow } from 'components/RollRow/RollRow'
+import { RollRow } from 'components/RollTable/RollRow/RollRow'
 
 describe('RollRow', () => {
     it('shows the results of one die', () => {

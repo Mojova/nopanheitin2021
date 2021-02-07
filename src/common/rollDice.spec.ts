@@ -3,7 +3,7 @@ import { _rollDice } from 'common/rollDice'
 describe('rollDice', () => {
     it('rolls a die', () => {
         const mockRollDie = jest.fn().mockReturnValue(7)
-        const result = _rollDice(mockRollDie, 1)
+        const result = _rollDice(mockRollDie, 1, 10)
         expect(result.dice.length).toBe(1)
         expect(result.dice[0]).toBe(7)
         expect(result.successes).toBe(1)
@@ -15,9 +15,9 @@ describe('rollDice', () => {
         const mockRollDie = jest.fn().mockImplementation(() => {
             return roll++
         })
-        const result = _rollDice(mockRollDie, 10)
+        const result = _rollDice(mockRollDie, 10, 9)
         expect(result.dice.length).toBe(10)
-        expect(result.successes).toBe(5)
+        expect(result.successes).toBe(6)
         expect(result.successesWithoutDoubles).toBe(4)
         expect(result.ones).toBe(1)
     })
