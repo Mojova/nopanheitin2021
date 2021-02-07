@@ -3,6 +3,7 @@ import classes from 'components/RadioInput/RadioInput.module.scss'
 
 interface RadioInputProps {
     checked: boolean
+    disabled: boolean
     label: string
     name: string
     onChange: ChangeEventHandler<HTMLInputElement>
@@ -10,12 +11,12 @@ interface RadioInputProps {
 }
 
 export const RadioInput: React.FC<RadioInputProps> = (props) => {
-    const {checked, label, name, onChange, value} = props
+    const {checked, disabled, label, name, onChange, value} = props
     const id = `id-${label}`
     return (
         <span className={classes.container}>
             <label htmlFor={id}>{label}</label>
-            <input id={id} type={'radio'} name={name} value={value.toLocaleString()} onChange={onChange} checked={checked} />
+            <input id={id} type={'radio'} name={name} value={value.toLocaleString()} onChange={onChange} checked={checked} disabled={disabled} />
         </span>
     )
 }

@@ -1,6 +1,6 @@
 import { isBotch } from 'common/isBotch'
-import { RollResult } from 'common/rollDice'
 import { ResultText } from 'components/RollResult/ResultText/ResultText'
+import { RollResult } from 'components/RollResult/RollResultView'
 import React from 'react'
 
 interface SuccessResultProps {

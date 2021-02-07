@@ -1,10 +1,9 @@
-import { RollResult } from 'common/rollDice'
 import { RollRow } from 'components/RollTable/RollRow/RollRow'
 import styles from 'components/RollTable/RollTable.module.scss'
 import React from 'react';
 
 interface RollTableProps {
-    roll: RollResult | undefined
+    roll: number[]
     successThreshold?: number
     doubleThreshold: number
 }
@@ -26,7 +25,7 @@ const determineSuccessType = (dieResult: number, successThreshold: number, doubl
 
 export const RollTable: React.FC<RollTableProps> = (props) => {
     const {roll, successThreshold = 7, doubleThreshold = 10} = props
-    if (!roll) {
+    if (roll.length === 0) {
         return null
     }
     return (
@@ -38,7 +37,7 @@ export const RollTable: React.FC<RollTableProps> = (props) => {
             </tr>
             </thead>
             <tbody>
-            {roll.dice.map((die, index) => <RollRow index={index} key={index} roll={die} successType={determineSuccessType(die, successThreshold, doubleThreshold)}/>)}
+            {roll.map((die, index) => <RollRow index={index} key={index} roll={die} successType={determineSuccessType(die, successThreshold, doubleThreshold)}/>)}
             </tbody>
         </table>
     )

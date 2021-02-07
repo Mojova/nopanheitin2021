@@ -5,10 +5,11 @@ interface ThreshholdInputProps {
     name: string
     threshhold: number
     value: number
+    disabled: boolean
     onChange: ChangeEventHandler<HTMLInputElement>
 }
 
 export const ThreshholdInput: React.FC<ThreshholdInputProps> = (props) => {
-    const {name, threshhold, onChange, value} = props
-    return <RadioInput checked={threshhold === value} label={value.toLocaleString()} name={name} onChange={onChange} value={value} />
+    const {disabled, name, threshhold, onChange, value} = props
+    return <RadioInput checked={threshhold === value} disabled={disabled} label={value.toLocaleString()} name={name} onChange={onChange} value={value} />
 }
