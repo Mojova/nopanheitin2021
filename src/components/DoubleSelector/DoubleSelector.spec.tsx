@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { DoubleSelector } from 'components/DoubleSelector/DoubleSelector'
 
-describe('DoubleSelector.spec.tsx', () => {
+describe('DoubleSelector', () => {
     it('renders', () => {
         const mockOnChange = jest.fn()
         render(<DoubleSelector doubleThreshold={10} onChange={mockOnChange} />)
