@@ -6,6 +6,7 @@
 
 .button {
   margin-left: 1rem;
+  min-width: 9rem;
 
   @media (max-width: variables.$mobile-breakpoint) {
     margin-top: 0.5rem;

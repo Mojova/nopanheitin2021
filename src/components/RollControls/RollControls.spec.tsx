@@ -7,9 +7,9 @@ describe('RollControls', () => {
         const doRoll = jest.fn()
         render(<RollControls doRoll={doRoll} />)
         expect(screen.getByText('Noppien määrä')).toBeVisible()
-        expect(screen.getByText('Heitä')).toBeVisible()
-        userEvent.type(screen.getByLabelText('Noppien määrä'), '10')
-        userEvent.click(screen.getByText('Heitä'))
+        expect(screen.getByText(/Heitä/)).toBeVisible()
+        userEvent.type(screen.getByLabelText('Noppien määrä'), '0')
+        userEvent.click(screen.getByText('Heitä 10 noppaa'))
         expect(doRoll).toHaveBeenCalled()
     });
 })
