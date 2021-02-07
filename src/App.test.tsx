@@ -1,19 +1,13 @@
 import userEvent from '@testing-library/user-event'
-import { RollResult } from 'common/rollDice'
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { App } from 'App';
 
 describe('App', () => {
-    const result: RollResult = {
-        dice: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        successes: 5,
-        successesWithoutDoubles: 4,
-        ones: 1
-    }
+    const result =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     it('renders the app', () => {
         const mockRoller = jest.fn().mockReturnValue(result)
-        render(<App rollDiceFn={mockRoller}/>);
+        render(<App rollDiceFn={mockRoller} />);
         const input = screen.getByLabelText('Noppien määrä')
         const button = screen.getByText(/Heitä/)
         expect(screen.getByText(/Exalted-nopanheitin/)).toBeInTheDocument()
