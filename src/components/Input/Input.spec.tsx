@@ -7,8 +7,15 @@ describe('Input', () => {
     it('is an input', () => {
         render(<Input id="dice" value={5} onChange={onChange}>Dice</Input>)
         const input = screen.getByLabelText('Dice')
-        expect(input).toHaveValue(5)
+        expect(input).toHaveValue('5')
         userEvent.type(input, '12')
         expect(onChange).toHaveBeenCalled()
-    });
+        userEvent.clear(input)
+        userEvent.type(input, 'ab')
+        userEvent.tab()
+        userEvent.clear(input)
+        userEvent.type(input, '12+12')
+        userEvent.tab()
+        expect(input).toBeValid()
+    })
 })

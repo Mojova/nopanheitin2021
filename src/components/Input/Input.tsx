@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from 'react';
+import { stringCalculator } from 'common/stringCalculator'
+import React, { ChangeEvent, useState } from 'react';
 import classes from 'components/Input/Input.module.scss'
 
 interface InputProps {
@@ -9,15 +10,33 @@ interface InputProps {
 
 export const Input: React.FC<InputProps> = (props) => {
     const {id, value, onChange, children} = props
+    const [internalValue, setInternalValue] = useState(value.toLocaleString())
+    const [error, setError] = useState(false)
 
     const internalOnChange = (event: ChangeEvent<HTMLInputElement>) => {
-        onChange(event.target.valueAsNumber)
+        setInternalValue(event.target.value)
+        const result = stringCalculator(event.target.value)
+        if (!Number.isNaN(result)) {
+            onChange(result)
+        }
     }
+
+    const onBlur = () => {
+        const result = stringCalculator(internalValue)
+        if (Number.isNaN(result)) {
+            setError(true)
+        } else {
+            setError(false)
+        }
+    }
+
+    const classNames = `${classes.input} ${error ? ' ' + classes.error : ''}`
 
     return (
         <>
             <label htmlFor={id} className={classes.label}>{children}</label>
-            <input id={id} value={value} className={classes.input} type="number" min="1" step="1" onChange={internalOnChange}/>
+            <input id={id} value={internalValue} onBlur={onBlur} className={classNames} type="text"
+                   onChange={internalOnChange} aria-invalid={error} />
         </>
     )
 }

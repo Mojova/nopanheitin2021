@@ -15,7 +15,7 @@ describe('App', () => {
         const mockRoller = jest.fn().mockReturnValue(result)
         render(<App rollDiceFn={mockRoller}/>);
         const input = screen.getByLabelText('Noppien määrä')
-        const button = screen.getByText('Heitä')
+        const button = screen.getByText(/Heitä/)
         expect(screen.getByText(/Exalted-nopanheitin/)).toBeInTheDocument()
         expect(input).toBeInTheDocument()
         expect(button).toBeInTheDocument()
