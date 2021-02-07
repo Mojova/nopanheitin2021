@@ -8,20 +8,20 @@ export interface RollResult {
     ones: number
 }
 
-export const _rollDice = (rollDieFn: () => number, amount: number): RollResult => {
+export const _rollDice = (rollDieFn: () => number, amount: number, doubleThreshold: number): RollResult => {
     const rolls: number[] = []
     for (let i = 0; i < amount; i++) {
         rolls.push(rollDieFn())
     }
     return {
         dice: rolls,
-        successes: calculateSuccesses(rolls),
+        successes: calculateSuccesses(rolls, 7, doubleThreshold),
         successesWithoutDoubles: calculateSuccesses(rolls, 7, Number.MAX_SAFE_INTEGER),
         ones: calculateOnes(rolls)
     }
 }
 
-export const rollDice: (amount: number) => RollResult = curry(_rollDice)(rollDie)
+export const rollDice: (amount: number, doubleThreshold: number) => RollResult = curry(_rollDice)(rollDie)
 
 const calculateSuccesses = (rolls: number[], threshold: number = 7, doubleLimit = 10) => {
     return reduce(rolls, (sum, roll) => {

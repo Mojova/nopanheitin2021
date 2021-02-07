@@ -7,9 +7,10 @@ describe('RollTable', () => {
         const roll: RollResult = {
             dice: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             successes: 4,
+            successesWithoutDoubles: 3,
             ones: 3
         }
-        render(<RollTable roll={roll} />)
+        render(<RollTable roll={roll} doubleThreshold={10} />)
         expect(screen.getByText('Noppa')).toBeInTheDocument()
         expect(screen.getByText('Tulos')).toBeInTheDocument()
         expect(screen.getByText('1.')).toBeInTheDocument()
@@ -24,7 +25,7 @@ describe('RollTable', () => {
         expect(screen.getByText('10.')).toBeInTheDocument()
     })
     it('shows nothing if there’s no roll', () => {
-        render(<RollTable roll={undefined} />)
+        render(<RollTable roll={undefined} doubleThreshold={10} />)
         expect(screen.queryByText('Noppa')).not.toBeInTheDocument()
         expect(screen.queryByText('Tulos')).not.toBeInTheDocument()
     });

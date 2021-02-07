@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from 'components/RollRow/RollRow.module.scss'
+import classes from 'components/RollTable/RollRow/RollRow.module.scss'
 import { SuccessType } from 'components/RollTable/RollTable'
 
 interface RollRowProps {

@@ -1,12 +1,12 @@
 import { RollResult } from 'common/rollDice'
-import { RollRow } from 'components/RollRow/RollRow'
+import { RollRow } from 'components/RollTable/RollRow/RollRow'
 import styles from 'components/RollTable/RollTable.module.scss'
 import React from 'react';
 
 interface RollTableProps {
     roll: RollResult | undefined
     successThreshold?: number
-    doubleThreshold?: number
+    doubleThreshold: number
 }
 
 export type SuccessType = 'BOTCH' | 'NOT_SUCCESS' | 'SUCCESS' | 'DOUBLE_SUCCESS'

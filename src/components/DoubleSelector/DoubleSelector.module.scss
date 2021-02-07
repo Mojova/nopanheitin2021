@@ -1,0 +1,21 @@
+@use 'src/variables';
+
+.container {
+  margin: 1rem auto;
+  width: 27.5rem;
+
+  @media (max-width: variables.$mobile-breakpoint) {
+    width: 15rem;
+  }
+}
+
+.legend {
+  margin: 0 auto;
+  float: left;
+  font-weight: 700;
+
+  @media (max-width: variables.$mobile-breakpoint) {
+    float: none;
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,3 +1,5 @@
+@use 'src/variables';
+
 .container {
   margin: 1rem;
 }
@@ -5,7 +7,7 @@
 .button {
   margin-left: 1rem;
 
-  @media (max-width: 375px) {
+  @media (max-width: variables.$mobile-breakpoint) {
     margin-top: 0.5rem;
     margin-left: 0;
     width: 15rem;
