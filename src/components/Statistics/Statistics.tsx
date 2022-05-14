@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 
-interface StatisticsProps {
-}
+interface StatisticsProps {}
 
 export const Statistics: React.FC<StatisticsProps> = (props) => {
-    const {} = props
-    return <>TODO</>
-}
+  const {} = props;
+  return <>TODO</>;
+};
