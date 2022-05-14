@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropsWithChildren} from 'react'
 import classes from 'components/Button/Button.module.scss'
 
 interface ButtonProps {
@@ -6,7 +6,7 @@ interface ButtonProps {
     className?: string
 }
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<PropsWithChildren<ButtonProps>> = (props) => {
     const {children, className, onClick} = props
     return <button onClick={onClick} className={`${classes.button} ${className}`}>{children}</button>
 }

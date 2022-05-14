@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { RollResult } from 'common/rollDice'
 import { SuccessResult } from 'components/RollResult/SuccessResult/SuccessResult'
+import {RollResult} from "../RollResultView";
 
 describe('SuccessResult', () => {
     it('renders successful rolls', () => {
         const rollResult: RollResult = {
-            dice: [1, 7, 10],
             successes: 3,
             successesWithoutDoubles: 2,
             ones: 1,
@@ -16,7 +15,6 @@ describe('SuccessResult', () => {
     })
     it('doesn’t render botches', () => {
         const rollResult: RollResult = {
-            dice: [1, 6, 1],
             successes: 0,
             successesWithoutDoubles: 0,
             ones: 2,

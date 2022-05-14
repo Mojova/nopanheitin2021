@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react'
+import React, {ChangeEventHandler, PropsWithChildren} from 'react'
 import classes from 'components/RadioInput/RadioInput.module.scss'
 
 interface RadioInputProps {
@@ -10,7 +10,7 @@ interface RadioInputProps {
     value: number
 }
 
-export const RadioInput: React.FC<RadioInputProps> = (props) => {
+export const RadioInput: React.FC<PropsWithChildren<RadioInputProps>> = (props) => {
     const {checked, disabled, label, name, onChange, value} = props
     const id = `id-${label}`
     return (

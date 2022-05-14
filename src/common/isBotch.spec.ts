@@ -1,10 +1,10 @@
 import { isBotch } from 'common/isBotch'
-import { RollResult } from 'common/rollDice'
+import {RollResult} from "../components/RollResult/RollResultView";
 
 describe('isBotch', () => {
     it('recognizes botches', () => {
         const result: RollResult = {
-            dice: [1, 1, 2, 5, 4],
+            successesWithoutDoubles: 0,
             successes: 0,
             ones: 2
         }
@@ -12,7 +12,7 @@ describe('isBotch', () => {
     });
     it('recognizes non-botches', () => {
         const result: RollResult = {
-            dice: [1, 1, 2, 7, 4],
+            successesWithoutDoubles: 0,
             successes: 1,
             ones: 2
         }

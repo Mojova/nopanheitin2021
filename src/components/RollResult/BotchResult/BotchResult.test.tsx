@@ -1,11 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { RollResult } from 'common/rollDice'
 import { BotchResult } from 'components/RollResult/BotchResult/BotchResult'
+import {RollResult} from "../RollResultView";
 
 describe('BotchResult', () => {
     it('renders botches', () => {
         const rollResult: RollResult = {
-            dice: [1, 2, 3],
             successes: 0,
             successesWithoutDoubles: 0,
             ones: 1
@@ -17,7 +16,6 @@ describe('BotchResult', () => {
     })
     it('doesn’t render other results', () => {
         const rollResult: RollResult = {
-            dice: [7, 2, 3],
             successes: 1,
             successesWithoutDoubles: 1,
             ones: 1

@@ -1,5 +1,5 @@
 import { ThreshholdInput } from 'components/ThresholdInput/ThresholdInput'
-import React, { ChangeEvent, useEffect } from 'react'
+import React, {ChangeEvent, PropsWithChildren, useEffect} from 'react'
 import classes from 'components/ThresholdSelector/ThresholdSelector.module.scss'
 
 interface DoubleSelectorProps {
@@ -10,7 +10,7 @@ interface DoubleSelectorProps {
     name: string
 }
 
-export const ThresholdSelector: React.FC<DoubleSelectorProps> = (props) => {
+export const ThresholdSelector: React.FC<PropsWithChildren<DoubleSelectorProps>> = (props) => {
     const {children, threshold, min, disableMin = 0, name, onChange} = props
     const internalOnChange = (event: ChangeEvent<HTMLInputElement>) => {
         onChange(Number.parseInt(event.target.value, 10))

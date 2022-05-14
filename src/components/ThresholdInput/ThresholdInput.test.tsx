@@ -5,14 +5,14 @@ import { ThreshholdInput } from 'components/ThresholdInput/ThresholdInput'
 describe('ThresholdInput', () => {
     it('renders a checked input', () => {
         const mockOnChange = jest.fn()
-        render(<ThreshholdInput name={'test'} threshhold={10} value={10} onChange={mockOnChange} />)
+        render(<ThreshholdInput name={'test'} threshhold={10} value={10} onChange={mockOnChange} disabled={false} />)
         const input = screen.getByLabelText('10')
         expect(input).toBeInTheDocument()
         expect(input).toBeChecked()
     })
     it('renders an unchecked input', () => {
         const mockOnChange = jest.fn()
-        render(<ThreshholdInput name={'test'} threshhold={10} value={9} onChange={mockOnChange} />)
+        render(<ThreshholdInput name={'test'} threshhold={10} value={9} onChange={mockOnChange} disabled={false} />)
         const input = screen.getByLabelText('9')
         expect(input).toBeInTheDocument()
         expect(input).not.toBeChecked()

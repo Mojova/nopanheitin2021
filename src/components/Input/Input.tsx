@@ -1,5 +1,5 @@
 import { stringCalculator } from 'common/stringCalculator'
-import React, { ChangeEvent, useState } from 'react';
+import React, {ChangeEvent, PropsWithChildren, useState} from 'react';
 import classes from 'components/Input/Input.module.scss'
 
 interface InputProps {
@@ -8,7 +8,7 @@ interface InputProps {
     onChange: (value: number) => void
 }
 
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<PropsWithChildren<InputProps>> = (props) => {
     const {id, value, onChange, children} = props
     const [internalValue, setInternalValue] = useState(value.toLocaleString())
     const [error, setError] = useState(false)
